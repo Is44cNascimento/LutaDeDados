@@ -21,21 +21,42 @@ public class LutaDeDadosTest {
         System.out.printf("Vida jogador 1: %d \n Vida jogador 2:%d", funcionalidade.getJogador1Vida(), funcionalidade.getJogador2Vida());
     }
 
-    @Test
-    void testeVencedor(){
-      System.out.println( Funcionalidade.verificarVencedor(1,1));
-    }
+
 
     @Test
     void testeDano(){
-        int dano = 15;
+        funcionalidade.setJogador1Vida(funcionalidade.getJogador1Vida() - 15);
+        System.out.print(funcionalidade.getJogador1Vida());
 
+    }
 
+    @Test
+    void testeDeVitoria(){
+        System.out.println( Funcionalidade.verificarVencedor(1,0));
+    }
 
-        System.out.print(funcionalidade);
+    @Test
+    void testeDeDerrota(){
+        System.out.println( Funcionalidade.verificarVencedor(0,1));
+    }
+
+    @Test
+    void testeDeEmpate(){
+        System.out.println( Funcionalidade.verificarVencedor(1,1));
+    }
+    @Test
+    void verificarVencedor(){
+        funcionalidade.verificarVencedor(15,15);
+        funcionalidade.verificarVencedor(2,2);
+        funcionalidade.verificarVencedor(90,90);
+
     }
 
 
-
-
+    @Test
+    void lancarDados(){
+            for(int i = 0; i<5;i++){
+            funcionalidade.turno();
+            }
+    }
 }

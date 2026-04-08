@@ -54,11 +54,12 @@ public class Funcionalidade {
 
 
 
-        jogador1Vida -= 2 * danoJogadorDois;
-        danoJogador1 += 2 * danoJogadorUm;
+        jogador1Vida -=  danoJogadorDois;
+        jogador2Vida -=  danoJogadorUm;
 
-        jogador2Vida -= 2 * danoJogadorUm;
-        danoJogador2 += 2 * danoJogadorDois;
+
+        danoJogador1 +=  danoJogadorUm;
+        danoJogador2 +=  danoJogadorDois;
 
         if (jogador1Vida < 0) {
             setJogador1Vida(0);
@@ -68,14 +69,14 @@ public class Funcionalidade {
             setJogador2Vida(0);
         }
 
-        System.out.printf("\n Rodada Atual:%d \n Dano jogador 1: %d \n dano jogador 2: %d   ", rodadas, danoJogador1, danoJogador2);
+        System.out.printf("RODADA:%d \n Jogador 1 causou %d de dano. Jogador 2 causou %d de dano",rodadas, danoJogadorUm , danoJogadorDois);
 
         rodadas++;
         System.out.println("\n =================================");
     }
 
     private static int lancarDados() {
-        return dado.nextInt(6);
+        return dado.nextInt(1,7);
     }
 
     public static String verificarVencedor(int jogador1Vida, int jogador2Vida) {
@@ -84,11 +85,10 @@ public class Funcionalidade {
             return "jogador 1 venceu";
         } else if (jogador2Vida > 1 && jogador1Vida <= 0) {
             return "jogador 2 venceu";
-        } else
+        } else if(jogador1Vida <=0 && jogador2Vida <=0) {
             return "EMPATE";
-
-
-
+        }
+        return null;
     }
 
 }
