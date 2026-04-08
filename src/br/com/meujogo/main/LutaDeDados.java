@@ -20,17 +20,24 @@ public class LutaDeDados {
 
 
             if(getJogador1Vida() > 0 && getJogador2Vida() > 0 ) {
-                jogo.turno(lancarDados(), lancarDados());
+
+
+                jogo.turno();
+
+
+
 
             } else {
                 continuar = false;
+
             }
 
             setRodadas(getRodadas() + 1);
 
         }
 
-        System.out.printf("Rodadas: %d \n Dano Jogador 1:%d \n Dano Jogador 2:%d ", getRodadas(),getDanoJogador1(), getDanoJogador2() );
+        System.out.printf("\n Rodadas: %d \n Dano Jogador 1:%d \n Dano Jogador 2:%d \n", getRodadas(),getDanoJogador1(), getDanoJogador2() );
+        System.out.print(jogo.verificarVencedor(getJogador1Vida(), getJogador2Vida()));
 
     }
 

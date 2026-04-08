@@ -41,33 +41,59 @@ public class Funcionalidade {
         return danoJogador1;
     }
 
-    public static void setDanoJogador1(int danoJogador1) {
-        Funcionalidade.danoJogador1 = danoJogador1;
-    }
 
     public static int getDanoJogador2() {
         return danoJogador2;
     }
 
-    public static void setDanoJogador2(int danoJogador2) {
-        Funcionalidade.danoJogador2 = danoJogador2;
-    }
 
-    public static void turno (int danoJogador1, int danoJogador2){
-        jogador1Vida -= 2*danoJogador2;
-        jogador2Vida -= 2*danoJogador1;
+    public static void turno() {
 
-        System.out.printf("Rodada Atual:%d \n Dano jogador 1: %d \n dano jogador 2: %d   ", rodadas , danoJogador1, danoJogador2);
+        int danoJogadorUm = lancarDados();
+        int danoJogadorDois = lancarDados();
+
+
+
+        jogador1Vida -= 2 * danoJogadorDois;
+        danoJogador1 += 2 * danoJogadorUm;
+
+        jogador2Vida -= 2 * danoJogadorUm;
+        danoJogador2 += 2 * danoJogadorDois;
+
+        if (jogador1Vida < 0) {
+            setJogador1Vida(0);
+        }
+
+        if (jogador2Vida < 0) {
+            setJogador2Vida(0);
+        }
+
+        System.out.printf("\n Rodada Atual:%d \n Dano jogador 1: %d \n dano jogador 2: %d   ", rodadas, danoJogador1, danoJogador2);
 
         rodadas++;
+        System.out.println("\n =================================");
     }
 
-    public static int lancarDados(){
+    private static int lancarDados() {
         return dado.nextInt(6);
     }
 
+    public static String verificarVencedor(int jogador1Vida, int jogador2Vida) {
+
+        if (jogador1Vida > 1 && jogador2Vida <= 0) {
+            return "jogador 1 venceu";
+        } else if (jogador2Vida > 1 && jogador1Vida <= 0) {
+            return "jogador 2 venceu";
+        } else
+            return "EMPATE";
 
 
 
+    }
 
 }
+
+
+
+
+
