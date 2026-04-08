@@ -32,17 +32,17 @@ public class LutaDeDadosTest {
 
     @Test
     void testeDeVitoria(){
-        System.out.println( Funcionalidade.verificarVencedor(1,0));
+        System.out.println( funcionalidade.verificarVencedor(1,0));
     }
 
     @Test
     void testeDeDerrota(){
-        System.out.println( Funcionalidade.verificarVencedor(0,1));
+        System.out.println( funcionalidade.verificarVencedor(0,1));
     }
 
     @Test
     void testeDeEmpate(){
-        System.out.println( Funcionalidade.verificarVencedor(1,1));
+        System.out.println( funcionalidade.verificarVencedor(1,1));
     }
     @Test
     void verificarVencedor(){
