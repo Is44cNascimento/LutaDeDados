@@ -17,14 +17,10 @@ public class LutaDeDados {
 
         while (continuar) {
 
-
-
             if(getJogador1Vida() > 0 && getJogador2Vida() > 0 ) {
 
 
                 jogo.turno();
-
-
 
 
             } else {
